@@ -154,6 +154,6 @@ a {
 
 @media (min-width: 769px) {
   .social-icons-mobile {
-    display: flex;
+    display: none;
   }
 }
