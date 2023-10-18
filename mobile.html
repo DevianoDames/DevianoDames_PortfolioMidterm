@@ -3,11 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- in mobile set initial zoom level of page to 100%, set site size to equal device width not a larger canvas that is shrunk down-->
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
-    <title>HarmoniGuitars</title>
-    <!-- Link to reset or normalize before main.css
-    only choose one -->
+    <title>Deviano Dames Portfolio</title>
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="path/to/silom-font.css">
@@ -18,11 +15,52 @@
     <h1 class="hidden">Deviano Dames Portfolio</h1>
     <div class="container">
         <header id="main-header" class="grid">
-            <div id="header-logo" class="box-color"></div>
-            <nav id="header-nav" class="box-color">
-                <h2 class="hidden">Main Navigation</h2>
+            <h2 class="hidden">Main Navigation</h2>
+            <nav class="navbar">
+                <a href="#" class="nav-branding">DEV.</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item social-icons">
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook"></i>
+                    </li>
+                    
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                
             </nav>
         </header>
+        <div class="hero">
+            <h1 class="hero-title">Hello! My name is Deviano Dames</h1>
+             <p class="hero-subtitle">Web & Motion Designer</p>
+             <button class="know-more-btn">Know More</button>
+        </div>
+        <div class="social-icons-mobile">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+        </div>
+        
+        <script src="https://kit.fontawesome.com/085f61f5df.js" crossorigin="anonymous"></script>
+
+        <script src="js/main.js"></script>
+        
     </div>
 </body>
 </html>
