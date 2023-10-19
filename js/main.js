@@ -1,8 +1,8 @@
 const projectList = document.querySelector(".project-list");
 
-// Add this code to make the project navigation display horizontally
+
 projectList.style.display = "flex";
-projectList.style.justifyContent = "center"; // You can adjust this based on your layout needs
+projectList.style.justifyContent = "center"; 
 
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");

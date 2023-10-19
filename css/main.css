@@ -222,18 +222,34 @@ a {
 .projects .project-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  gap: 10px;
+  justify-content: space-around;
   margin-top: 50px;
 }
 .projects .project-content .project-category {
   width: 100%;
+  flex: 0 0 calc(33.333% - 10px);
+  overflow: hidden;
+}
+.projects .project-content .project-category img {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 1200px) {
+  .projects .project-content {
+    flex-wrap: nowrap;
+    gap: 0px;
+  }
+  .projects .project-category {
+    flex: 0 0 calc(25% - 10px);
+  }
 }
 
 .project-list {
   list-style: none;
-  gap: 20px; /* Add more spacing between items */
+  gap: 20px;
   padding: 0;
+  display: flex;
   justify-content: center;
   margin-top: 50px;
 }
@@ -300,4 +316,57 @@ contact {
 
 .footer-icon:hover {
   color: #68C9AC;
+}
+
+/* Add this CSS after your existing CSS */
+.contact-form {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.contact-form h2 {
+  font-family: "Silom", sans-serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.contact-form form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: transparent;
+  padding: 20px;
+  border: 2px solid #68C9AC;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: white;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #68C9AC;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: white;
+}
+
+.contact-form button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  background: linear-gradient(23deg, rgb(10, 35, 28) 0%, rgba(7, 42, 34, 0.871) 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  display: inline-block;
 }
