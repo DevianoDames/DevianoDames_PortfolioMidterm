@@ -35,7 +35,7 @@ a {
   margin-bottom: 20px;
 }
 
-.nav-menu {
+.nav__menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
