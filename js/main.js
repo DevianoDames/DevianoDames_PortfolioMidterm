@@ -6,8 +6,6 @@ let navbar = document.querySelector('.navbar');
 hamMenu.onclick = () => {
     hamMenu.classList.toggle('fa-xmark');
     navbar.classList.toggle('active');
-
-    navbar.style.display = navbar.classList.contains('active') ? 'block' : 'none';
 };
 
 let sections = document.querySelectorAll('section');
@@ -38,6 +36,7 @@ window.onscroll = () => {
 
     hamMenu.classList.remove('fa-xmark');
     navbar.classList.remove('active');
-    navbar.style.display = 'none';
+
+
 
 };
