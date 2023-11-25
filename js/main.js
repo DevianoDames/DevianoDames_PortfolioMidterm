@@ -40,3 +40,15 @@ window.onscroll = () => {
 
 
 };
+
+ScrollReveal({
+    //reset: true,
+    distance:'80px',
+    duration: 2000,
+    delay: 200
+});
+
+ScrollReveal().reveal('.intro-content, .heading', {origin: 'top'});
+ScrollReveal().reveal('.intro-img, .services-container, .portfolio-box, .contact form', {origin: 'bottom'});
+ScrollReveal().reveal('.intro-content h1, .about-img', {origin: 'left'});
+ScrollReveal().reveal('.intro-content p, .about', {origin: 'right'});
