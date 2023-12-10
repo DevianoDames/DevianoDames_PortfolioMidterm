@@ -41,6 +41,8 @@ window.onscroll = () => {
 
 };
 
+
+
 ScrollReveal({
     //reset: true,
     distance:'80px',
@@ -49,6 +51,6 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.intro-content, .heading', {origin: 'top'});
-ScrollReveal().reveal('.intro-img, .services-container, .portfolio-box, .contact form', {origin: 'bottom'});
-ScrollReveal().reveal('.intro-content h1, .about-img', {origin: 'left'});
-ScrollReveal().reveal('.intro-content p, .about', {origin: 'right'});
+ScrollReveal().reveal('.intro-img, .services-container, .portfolio-box, .contact form,.portfolio-box2', {origin: 'bottom'});
+ScrollReveal().reveal('.intro-content h1, .about-img, .project-info h3', {origin: 'left'});
+ScrollReveal().reveal('.intro-content p, .about, .project-info p', {origin: 'right'});
