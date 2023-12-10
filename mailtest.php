@@ -8,9 +8,9 @@ $errors = [];
 
 // Processing form data when form is submitted
 
-$lname = trim($_POST['last_name']);
-$fname = trim($_POST['first_name']);
+$fullname = trim($_POST['full_name']);
 $email = trim($_POST['email']);
+$subject = trim($_POST['subject'])
 $msg = trim($_POST['comments']);
     
 
@@ -39,7 +39,7 @@ $msg = trim($_POST['comments']);
     // Check for any errors before inserting in database
     if(empty($errors)){
         // Insert data into the database
-        $query = "INSERT INTO contacts (last_name, first_name, email, comments) VALUES ('$lname', '$fname', '$email', '$msg')";
+        $query = "INSERT INTO contacts (full_name, phone_number, email, subject, message) VALUES ('$fullname', '$pnumber', '$email', '$sub')";
         
         if(mysqli_query($connect, $query)) {
             // Send email
