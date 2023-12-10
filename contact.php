@@ -3,33 +3,24 @@
 </head>
 
 <body>
-<section>
-<form method="post" action="sendmail.php">
+<section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me</span></h2>
 
-    <label for="first_name">First Name: </label>
-    <input type="text" name="first_name" id="first_name">
+    <form action="sendmail.php">
+        <div class="input-box">
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email Address">    
+        </div>
+        <div class="input-box">
+            <input type="number" placeholder="Phone Number">
+            <input type="text" placeholder="Email Subject">    
+        </div>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+        <input type="submit" value="Send Message" class="btn">
+    </form>
 
-<br><br>
-
-    <label for="last_name">Last Name: </label>
-    <input type="text" name="last_name" id="last_name">
-
-    <br><br>
-
-    <label for="email">Email: </label>
-    <input type="text" name="email" id="email">
-
-    <br><br>
-
-    <label for="comments">Comments: </label>
-    <textarea name="comments" id="comments">comment here</textarea>
-
-    <br><br>
-
-    <input type="submit" value="send">
-    <br><br>    <br><br>
-</form>
 </section>
+
 <footer>
 <?php 
 echo date("F j, Y, g:i a"); 
