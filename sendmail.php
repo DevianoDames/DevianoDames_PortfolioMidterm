@@ -12,8 +12,8 @@ $errors = [];
 
 //validate and clean these values
 
-$fname = trim($fname);
-$lname = trim($lname);
+$fullname = trim($fullname);
+$phone_number = trim($pnumber);
 $email = trim($email);
 $msg = trim($msg);
 
@@ -39,7 +39,7 @@ if(empty($errors)) {
 
     //insert these values as a new row in the contacts table
 
-    $query = "INSERT INTO contacts (first_name,last_name, phone_number, comments) VALUES('$fname','$lname','$email','$msg')";
+    $query = "INSERT INTO contacts (full_name, phone_number, email) VALUES('$fullname','$pnumber','$email','$msg')";
 
     if(mysqli_query($connect, $query)) {
 
