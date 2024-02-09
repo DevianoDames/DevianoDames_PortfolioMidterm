@@ -378,30 +378,38 @@ span {
 
  .project-info2-img {
    display: flex;
-   justify-content: space-around;
+   flex-direction: column;
    align-items: center;
-   flex-wrap: wrap;
+   gap: 1rem;
 }
 
-.project-info2-img img {
-   width: 45%; 
-   height: 100%;
-   object-fit: cover;
-   margin-bottom: 1rem; 
+.image-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 1rem;
+}
+
+.image-container img {
+   width: calc(50% - 0.5rem); /* Adjust width as needed and consider gap */
+   max-width: 100%; /* Ensure images don't exceed container width */
    border-radius: 2rem;
 }
-.btn2{
+
+.btn2 {
    display: inline-block;
-   padding: 1rem   2.8rem;
+   padding: 1rem 2.8rem;
    background: var(--main-color);
    border-radius: 4rem;
-   box-shadow: 0 0 1rem    var(--main-color);
+   box-shadow: 0 0 1rem var(--main-color);
    font-size: 1.6rem;
    color: var(--second-bg-color);
    letter-spacing: .1rem;
    font-weight: 600;
    transition: .5s ease;
 }
+
 
 .btn:hover {
    box-shadow: none;
