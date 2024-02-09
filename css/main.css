@@ -332,6 +332,7 @@ span {
    margin: .3rem 0 2rem;
  }
 
+
  .project-info h2 {
    font-size: 4rem;
    margin: .5rem 0 3rem;
@@ -366,6 +367,11 @@ span {
    margin: .3rem 0 2rem;
  }
 
+ .case-study-content h2{
+   font-size: 40px;
+   margin-bottom: 30px;
+ }
+
  .project-info2 h2 {
    font-size: 4rem;
    margin: .5rem 0 3rem;
@@ -392,8 +398,8 @@ span {
 }
 
 .image-container img {
-   width: calc(50% - 0.5rem); /* Adjust width as needed and consider gap */
-   max-width: 100%; /* Ensure images don't exceed container width */
+   width: calc(50% - 0.5rem); 
+   max-width: 100%; 
    border-radius: 2rem;
 }
 
@@ -414,7 +420,32 @@ span {
 .btn:hover {
    box-shadow: none;
 }
+/*Project-Info 2*/
+.project-info3 {
+   background: var(--second-bg-color);
+ }
 
+ .project-info3 p {
+   font-size: 2rem;
+   margin: .3rem 0 2rem;
+ }
+
+ .project-info3 h2 {
+   font-size: 4rem;
+   margin: .5rem 0 3rem;
+ }
+
+ .project-info3 h3{
+   font-size: 2.6rem;
+   margin: .3rem 0 3rem;
+ }
+
+ .project-info3-img {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 1rem;
+}
 
 /* Contact Section */
 
