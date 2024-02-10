@@ -35,7 +35,7 @@ $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
   echo  '<section class="project-con"><h3>'.$row['title'].'</h3><a href="project_detail.php?id='.
-$row['id'].
+$row['project_id'].
 '"><img class="thumbnail" src="images/'.    
         $row['image_url'].   
         '" alt="Project Thumbnail"></a><p>'.   
