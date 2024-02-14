@@ -26,4 +26,3 @@ $last_id = $connection->lastInsertId();
 //$last_id = $connection->lastInsertId();
 $stmt = null;
 header('Location: project_list.php');
-?>
