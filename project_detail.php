@@ -20,6 +20,10 @@ $stmt = null;
 </head>
 <body>
 
+<section class="case-study-content">
+        <h2>Sportsnet <span>Case Study</span></h2>
+        <div class="project-info">
+
 <h1><?php echo $row['title']; ?></h1>
 
 <p><?php echo $row['description']; ?></p>
@@ -33,7 +37,9 @@ $stmt = null;
 <h2>Problems and Solutions</h2>
 <p class="probs"><?php echo $row['problems']; ?></p>
 </div>
+</div>
 
+</section>
 
 <section class="project-gallery">
 <?php 
