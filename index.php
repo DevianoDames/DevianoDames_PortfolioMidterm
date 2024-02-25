@@ -14,6 +14,8 @@ $stmt->execute();
 
 </head>
 
+
+
 <body>
 <header class="header">
         <a href="#" class="logo">Deviano.</a>
@@ -30,19 +32,24 @@ $stmt->execute();
 
     </header>
 
-<?php
+    <section class="portfolio">
+    <h2>Latest Projects</h2>
+    <div class="portfolio-container">
+        <?php
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo '<div class="portfolio-box">';
+            echo '<a href="project_detail.php?id=' . $row['id'] . '">';
+            echo '<img src="images/' . $row['image_url'] . '" alt="Project Thumbnail">';
+            echo '<div class="portfolio-cover">';
+            echo '<h4>' . $row['title'] . '</h4>';
+            echo '<p>' . $row['description'] . '</p>';
+            echo '<a href="project_detail.php?id=' . $row['id'] . '"><i class="fas fa-arrow-right"></i></a>';
+            echo '</div>';
+            echo '</a>';
+            echo '</div>';
+        }
 
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-  echo  '<section class="project-con"><h3>'.$row['title'].'</h3><a href="project_detail.php?id='.
-$row['id'].
-'"><img class="thumbnail" src="images/'.    
-        $row['image_url'].   
-        '" alt="Project Thumbnail"></a><p>'.   
-        $row['description'].  
-        '</p></section>';
-
-}
 
 $stmt = null;
 
