@@ -3,3 +3,16 @@ $bg-color: #1f242d;
 $second-bg-color: #323946;
 $text-color: #fff;
 $main-color: #68C9AC;
+
+
+@media (max-width: 1200px) {
+    html {
+      font-size: 55%;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    html {
+      font-size: 50%;
+    }
+  }

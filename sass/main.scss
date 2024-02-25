@@ -1,13 +1,24 @@
-// main.scss
+// Import Abstract
+@use 'components/header';
+@use 'abstract/variables';
+@use 'abstract/mixins';
 
-// Import variables
-@use 'Abstract';
+// Import Base
+@use 'base/reset';
+@use 'base/typography';
 
-// Import base styles
-@use 'Base';
+// Import Components
+@use 'components/intro';
+@use 'components/about';
+@use 'components/services';
+@use 'components/portfolio';
+@use 'components/contact';
+@use 'components/footer';
+@use 'components/social-media';
 
-// Import component styles
-@use 'components';
+// Import Pages
+@use 'pages/home'; // Example for the home page
+@use 'pages/about';
+@use 'pages/contact';
 
-// Import page-specific styles
-@use 'pages';
+// Add any additional imports as needed.
