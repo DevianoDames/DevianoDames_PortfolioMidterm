@@ -1,0 +1,29 @@
+ @use '../abstracts';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  :root {
+    --bg-color: $bg-color;
+    --second-bg-color: $second-bg-color;
+    --text-color: $text-color;
+    --main-color: $main-color;
+  }
+  
+  html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  

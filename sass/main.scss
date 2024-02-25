@@ -1,4 +1,13 @@
-@use 'abstracts';
-@use 'base';
+// main.scss
+
+// Import variables
+@use 'Abstract';
+
+// Import base styles
+@use 'Base';
+
+// Import component styles
 @use 'components';
+
+// Import page-specific styles
 @use 'pages';
