@@ -21,7 +21,7 @@ $stmt = null;
 <body>
 
 <section class="case-study-content">
-        <h2>Sportsnet <span>Case Study</span></h2>
+        <h2>Project <span>Case Study</span></h2>
         <div class="project-info">
 
 <h1><?php echo $row['title']; ?></h1>
