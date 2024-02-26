@@ -16,18 +16,27 @@ if ($conn->connect_error) {
 $user = $_POST['username'];
 $pass = $_POST['password'];
 
-// This is vulnerable to SQL Injection
-$sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
-$result = $conn->query($sql);
+// Prepare and bind
+$stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+$stmt->bind_param("ss", $user, $pass); // 'ss' specifies that both parameters are strings
+
+// Execute the prepared statement
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     // Successful login
     echo "Logged in successfully";
-    echo $result->num_rows;
+    // Optional: Fetch the data if needed
+    // while ($row = $result->fetch_assoc()) {
+    //     // process your $row here if needed
+    // }
 } else {
     // Login failed
     echo "Invalid username or password";
 }
 
+// Close statement and connection
+$stmt->close();
 $conn->close();
 ?>
