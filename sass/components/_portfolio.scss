@@ -1,87 +1,6 @@
 @use '../abstracts' as a;
 
-.portfolio {
-    background: a.$second-bg-color;
-  }
-  
-  .portfolio h2 {
-    margin-bottom: 4rem;
-  }
-  
-  .portfolio-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    gap: 2.5rem;
-  }
-  
-  .portfolio-container .portfolio-box {
-    position: relative;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem a.$bg-color;
-    overflow: hidden;
-    display: flex;
-  }
-  
-  .portfolio-box img {
-    transition: .5s ease;
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-  }
-  
-  .portfolio-box:hover img {
-    transform: scale(1.1);
-  }
-  
-  .portfolio-box .portfolio-cover {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 0 4rem;
-    transform: translateY(100%);
-    transition: .5s ease;
-  }
-  
-  .portfolio-box:hover .portfolio-cover {
-    transform: translateY(0);
-  }
-  
-  .portfolio-cover h4 {
-    font-size: 3rem;
-  }
-  
-  .portfolio-cover p {
-    font-size: 1.6rem;
-    margin: .3rem 0 1rem;
-  }
-  
-  .portfolio-cover a {
-    display:inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 5rem;
-    height: 5rem;
-    background: a.$text-color;
-    border-radius: 50%;
-  }
-  
-  .portfolio-cover2 a i {
-    font-size: 2rem;
-    color: a.$second-bg-color;
-  }
-  .portfolio .btn {
-     display: block;
-     margin: 0 auto 20px; 
-  }
+
 
   @media (max-width: 991px) {
     .portfolio {
@@ -117,4 +36,86 @@
       grid-template-columns: 1fr;
     }
   }
+  /* Case Study Section */
+.case-study-content {
+  background: a.$second-bg-color;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.case-study-content h2 {
+  color: a.$main-color;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.case-study-content p, .project-info p, .project-info2 p {
+  font-size: 30px;
+  margin-bottom: 1.5rem;
+  color: a.$text-color;
+  line-height: 1.6;
+}
+
+.project-info, .project-info2 {
+  margin-bottom: 1.8rem;
+}
+
+.portfolio h2{
+  font-size: 40px;
+}
+
+.project-info h2, .project-info2 h2 {
+  color: a.$text-color;
+  margin-bottom: 2rem;
+}
+
+/* Project Gallery */
+.project-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.portfolio-image {
   
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-image:hover {
+  transform: scale(1.03);
+}
+
+.portfolio-container{
+  display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 2rem;
+}
+
+.portfolio-container .portfolio-box{
+  flex: 1 1 30rem;
+     background: a.$second-bg-color;
+     padding: 3rem 2rem  4rem;
+     border-radius: 2rem;
+     text-align: center;
+     border: .2rem solid a.$bg-color;
+     transition: .5s ease;
+     
+}
+
+
+@media (max-width: 768px) {
+  .portfolio-image {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-image {
+    width: 100%;
+  }
+}
