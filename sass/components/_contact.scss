@@ -1,3 +1,5 @@
+@use '../abstracts' as a;
+
 .contact h2 {
     margin-bottom: 3rem;
   }
@@ -20,8 +22,8 @@
     width: 100%;
     padding: 1.5rem;
     font-size: 1.6rem;
-    color: var(--text-color);
-    background: var(--second-bg-color);
+    color: a.$text-color;
+    background: a.$second-bg-color;
     border-radius: .8rem;
     margin: .7rem 0;
   }

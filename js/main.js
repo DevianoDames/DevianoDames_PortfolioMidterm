@@ -41,6 +41,35 @@ window.onscroll = () => {
 
 };
 
+document.getElementById('contactForm').addEventListener('submit', function(event){
+    event.preventDefault(); 
+
+    let formData = new FormData(this); 
+
+   
+    fetch('sendmail.php', {
+        method: 'post',
+        body: formData,
+    })
+    .then(response => response.text())
+    .then(data => {
+       
+        console.log(data); 
+       
+        alert('Message sent successfully!'); 
+        
+    })
+    .catch(error => {
+       
+        console.error('Error:', error);
+        alert('An error occurred while sending the message.');
+    });
+});
+
+
+
+
+
 
 
 ScrollReveal({
