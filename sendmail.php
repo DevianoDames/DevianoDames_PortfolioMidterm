@@ -40,11 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if(empty($errors)) {
         //insert these values as a new row in the contacts table
-        $query = "INSERT INTO contacts (full_name, phone_number, email, message) VALUES ('$fullname', '$phone_number', '$email', '$msg')";
+        $query = "INSERT INTO contacts (fname,lname, phone_number, email, message) VALUES ('$fname','$lname', '$phone_number', '$email', '$msg')";
 
         if(mysqli_query($connect, $query)) {
             //format and send these values in an email
-            $to = 'rhaaf@fanshawec.ca';
+            $to = 'devianodames@hotmail.com';
             $subject = 'Message from your Portfolio site!';
             $message = "You have received a new contact form submission:\n\n";
             $message .= "Name: " . $fullname . "\n";
