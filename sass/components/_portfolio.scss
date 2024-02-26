@@ -1,5 +1,7 @@
+@use '../abstracts' as a;
+
 .portfolio {
-    background: var(--second-bg-color);
+    background: a.$second-bg-color;
   }
   
   .portfolio h2 {
@@ -16,7 +18,7 @@
   .portfolio-container .portfolio-box {
     position: relative;
     border-radius: 2rem;
-    box-shadow: 0 0 1rem var(--bg-color);
+    box-shadow: 0 0 1rem a.$bg-color;
     overflow: hidden;
     display: flex;
   }
@@ -68,13 +70,13 @@
     align-items: center;
     width: 5rem;
     height: 5rem;
-    background: var(--text-color);
+    background: a.$text-color;
     border-radius: 50%;
   }
   
   .portfolio-cover2 a i {
     font-size: 2rem;
-    color: var(--second-bg-color);
+    color: a.$second-bg-color;
   }
   .portfolio .btn {
      display: block;

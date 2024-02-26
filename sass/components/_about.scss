@@ -1,13 +1,15 @@
+@use '../abstracts' as a;
+
 .about {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    background: var(--second-bg-color);
+    background-color: a.$second-bg-color;
  }
  
  .about-img img {
-    width: 25vw;
+    width: 20rem;
     
  }
  

@@ -12,9 +12,10 @@
   align-items: center;
   z-index: 100;
 
-  &.sticky {
+  .header .sticky {
     border-bottom: .1rem solid rgba(0, 0, 0, .2);
   }
+  
 }
 
 .logo {
@@ -23,6 +24,23 @@
   font-weight: 600;
   cursor: default;
 }
+.navbar a {
+  font-size: 1.7rem;
+  color:a.$text-color;
+  margin-left: 4rem;
+  transition: .3s;
+}
+.navbar a:hover,
+.navbar a .active {
+  color: a.$main-color;
+}
+
+#ham-menu {
+   font-size: 3.6rem;
+   color: a.$text-color;
+   display: none;
+}
+
 
 @media (max-width: 991px) {
   .header {

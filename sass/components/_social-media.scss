@@ -1,3 +1,5 @@
+@use '../abstracts' as a;
+
 .social-media {
     a {
       display: inline-flex;
@@ -6,17 +8,17 @@
       width: 4rem;
       height: 4rem;
       background: transparent;
-      border: .2rem solid var(--main-color);
+      border: .2rem solid a.$main-color;
       border-radius: 50%;
       font-size: 2rem;
-      color: var(--main-color);
+      color: a.$main-color;
       margin: 3rem 1.5rem 3rem 0;
       transition: .5s ease;
   
       &:hover {
-        background: var(--main-color);
-        color: var(--second-bg-color);
-        box-shadow: 0 0 1rem var(--main-color);
+        background: a.$main-color;
+        color: a.$second-bg-color;
+        box-shadow: 0 0 1rem a.$main-color;
       }
     }
   }
@@ -24,11 +26,11 @@
   .btn {
     display: inline-block;
     padding: 1rem 2.8rem;
-    background: var(--main-color);
+    background: a.$main-color;
     border-radius: 4rem;
-    box-shadow: 0 0 1rem var(--main-color);
+    box-shadow: 0 0 1rem a.$main-color;
     font-size: 1.6rem;
-    color: var(--second-bg-color);
+    color: a.$second-bg-color;
     letter-spacing: .1rem;
     font-weight: 600;
     transition: .5s ease;
