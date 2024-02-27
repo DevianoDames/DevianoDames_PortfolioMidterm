@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require_once('connect.php');
+require_once('includes/connect.php');
 $stmt = $connection->prepare('SELECT * FROM portfolio_items ORDER BY title ASC');
 $stmt->execute();
 ?>
@@ -11,6 +11,11 @@ $stmt->execute();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Page</title>
     <link rel="stylesheet" href="css/main.css" type="text/css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script defer src="js/SplitText.js"></script>
+    <script src="https://kit.fontawesome.com/085f61f5df.js" crossorigin="anonymous"></script>
+    <script defer src="js/main.js"></script>
 
 </head>
 
