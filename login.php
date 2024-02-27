@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "Deviano_Dames_portfolio";
+require_once('connect.php');
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
