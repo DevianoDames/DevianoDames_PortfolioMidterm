@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require_once('includes/connect.php');
+require_once('connect.php');
 $stmt = $connection->prepare('SELECT * FROM portfolio_items ORDER BY title ASC');
 $stmt->execute();
 ?>
