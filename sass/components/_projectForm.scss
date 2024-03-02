@@ -1,0 +1,51 @@
+@use '../abstracts' as a;
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    label {
+        display: block;
+        margin: 20px 0 10px;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+        background: #0056b3;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background: #004494;
+        }
+    }
+}
+
+// Additional styles for project list
+.project-list {
+    background: #e9ecef;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
