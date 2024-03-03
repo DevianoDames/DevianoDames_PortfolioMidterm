@@ -1,7 +1,6 @@
 <?php
-session_start(); // Start the session at the beginning of the file.
+session_start(); 
 
-// Check if the user is logged in. If not, redirect to login_form.php.
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: login_form.php');
     exit;
@@ -20,7 +19,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <script defer src="js/SplitText.js"></script>
     <script src="https://kit.fontawesome.com/085f61f5df.js" crossorigin="anonymous"></script>
     <script defer src="../js/main.js"></script>
-    <!-- Styles moved here for brevity -->
+    
 </head>
 <body>
   <style>
