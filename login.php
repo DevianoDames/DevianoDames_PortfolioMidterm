@@ -1,8 +1,9 @@
 <?php
+session_start(); // Start a new session
 require_once('connect.php');
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, 'Deviano_Dames_portfolio');
 
 // Check connection
 if ($conn->connect_error) {
@@ -10,26 +11,30 @@ if ($conn->connect_error) {
 }
 
 // Data from form
-$user = $_POST['username'];
+$user = $_POST['ddames'];
 $pass = $_POST['password'];
 
-// Prepare and bind
-$stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
-$stmt->bind_param("ss", $user, $pass); // 'ss' specifies that both parameters are strings
+// Prepare
+$stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
+$stmt->bind_param("s", $user);
 
 // Execute the prepared statement
 $stmt->execute();
 $result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    // Successful login
-    echo "Logged in successfully";
-    // Optional: Fetch the data if needed
-    // while ($row = $result->fetch_assoc()) {
-    //     // process your $row here if needed
-    // }
+if ($row = $result->fetch_assoc()) {
+    // Verify hashed password
+    if (password_verify($pass, $row['password'])) {
+        // Successful login
+        $_SESSION['user_id'] = $row['id']; // Store user ID in session
+        // Redirect to the CMS page 'project_list.php'
+        header('Location: project_list.php');
+        exit();
+    } else {
+        // Invalid password
+        echo "Invalid username or password";
+    }
 } else {
-    // Login failed
+    // User not found
     echo "Invalid username or password";
 }
 
