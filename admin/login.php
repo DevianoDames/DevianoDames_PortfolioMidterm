@@ -1,19 +1,38 @@
 <?php
-require_once('../includes/connect.php'); // Adjust the path as necessary.
+session_start();
+require_once('../includes/connect.php'); // Ensure this path is correct to your database connection file
 
-$username = "ddames"; // Replace with the desired username.
-$password = vanodames2212!("mypassword", PASSWORD_DEFAULT); // Replace with the desired password.
+// Check if the form has been submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password']; // This is the plaintext password from the form
 
-$stmt = $connection->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-$stmt->bind_param("ss", $username, $password);
-$stmt->execute();
-
-if ($stmt->affected_rows > 0) {
-    echo "User created successfully.";
+    $stmt = $connection->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->bindParam(1, $username, PDO::PARAM_STR);
+    $stmt->execute();
+    
+    if ($stmt->rowCount() == 1) {
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Verify the password against the hashed password in the database
+        if (password_verify($password, $user['password'])) {
+            // Password is correct, so start a new session
+            $_SESSION['username'] = $user['username'];
+            // Redirect the user to the project list page
+            header("location: project_list.php");
+            exit;
+        } else {
+            // Password is not valid, redirect back to the login page
+            header("location: login_form.php");
+            exit;
+        }
+    } else {
+        // Username doesn't exist
+        header("location: login_form.php");
+        exit;
+    }
 } else {
-    echo "Error: " . $connection->error;
+    // The correct POST variables were not sent to this page
+    header("location: login_form.php");
+    exit;
 }
-
-$stmt->close();
-$connection->close();
 ?>
