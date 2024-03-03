@@ -43,7 +43,7 @@ $msg = trim($_POST['comments']);
         
         if(mysqli_query($connect, $query)) {
             // Send email
-            $to = 'rhaaf@fanshawec.ca'; // Change to your recipient email address
+            $to = 'devianodames@hotmail.com'; // Change to your recipient email address
             $subject = 'New Contact Form Submission';
             $message = "You have received a new contact form submission.\n\n";
             $message .= "Last Name: " . $lname . "\n";
