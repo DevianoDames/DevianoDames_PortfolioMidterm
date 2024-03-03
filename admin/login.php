@@ -1,11 +1,13 @@
 <?php
 session_start();
-require_once('../includes/connect.php'); // Ensure this path is correct to your database connection file
+require_once('../includes/connect.php');
 
-// Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password']; // This is the plaintext password from the form
+
+    echo "Submitted username: " . $username . "<br>";
+    echo "Submitted password: " . $password . "<br>";
 
     $stmt = $connection->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->bindParam(1, $username, PDO::PARAM_STR);
@@ -13,26 +15,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
     
     if ($stmt->rowCount() == 1) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        // Verify the password against the hashed password in the database
+
+        echo "Stored hashed password: " . $user['password'] . "<br>";
+
         if (password_verify($password, $user['password'])) {
-            // Password is correct, so start a new session
             $_SESSION['username'] = $user['username'];
-            // Redirect the user to the project list page
-            header("location: project_list.php");
-            exit;
+            header("Location: project_list.php"); // Redirection to project_list.php
+            exit();
         } else {
-            // Password is not valid, redirect back to the login page
-            header("location: login_form.php");
-            exit;
+            // Password is not valid, redirect back to the login page with an error
+            header("Location: login_form.php?error=invalidpassword");
+            exit();
         }
     } else {
         // Username doesn't exist
-        header("location: login_form.php");
-        exit;
+        header("Location: login_form.php?error=nouser");
+        exit();
     }
 } else {
-    // The correct POST variables were not sent to this page
-    header("location: login_form.php");
-    exit;
+    // Form not submitted correctly
+    header("Location: login_form.php?error=invalidrequest");
+    exit();
 }
 ?>
