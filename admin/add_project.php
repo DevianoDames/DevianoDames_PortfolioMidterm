@@ -1,4 +1,11 @@
 <?php
+session_start(); // Start or resume the session
+
+
+if(!isset($_SESSION['username'])){
+    header('Location: login_form.php');
+    exit;
+}
 require_once('../includes/connect.php');
 
 //move_uploaded_file etc FIRST, as we need the new name
@@ -6,7 +13,7 @@ require_once('../includes/connect.php');
 
 
 
-$query = "INSERT INTO projects (title,description,image_url) VALUES (?,?,?)";
+$query = "INSERT INTO portfolio_items (title,description,image_url) VALUES (?,?,?)";
 
 $stmt = $connection->prepare($query);
 $stmt->bindParam(1, $_POST['title'], PDO::PARAM_STR);

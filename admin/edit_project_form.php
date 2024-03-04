@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+session_start(); // Start or resume the session
+
+
+if(!isset($_SESSION['username'])){
+    header('Location: login_form.php');
+    exit;
+}
 require_once('../includes/connect.php');
 $query = 'SELECT * FROM projects WHERE projects.id = :projectId';
 $stmt = $connection->prepare($query);
