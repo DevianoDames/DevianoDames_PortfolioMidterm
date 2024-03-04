@@ -125,7 +125,7 @@ try {
         </div>
         <div class="input-box">
             <label for="thumb">Project Thumbnail:</label>
-            <input name="thumb" type="text" required>
+            <input name="thumb" type="text">
         </div>
         <div class="input-box">
             <label for="image">Project Image:</label>

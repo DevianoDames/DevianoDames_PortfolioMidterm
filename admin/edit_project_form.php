@@ -9,10 +9,10 @@ if(!isset($_SESSION['username'])){
     exit;
 }
 require_once('../includes/connect.php');
-$query = 'SELECT * FROM projects WHERE projects.id = :projectId';
+$query = 'SELECT * FROM portfolio_items WHERE portfolio_items.id = :portfolio_itemsId';
 $stmt = $connection->prepare($query);
 $projectId = $_GET['id'];
-$stmt->bindParam(':projectId', $projectId, PDO::PARAM_INT);
+$stmt->bindParam(':portfolio_itemsId', $portfolio_itemsId, PDO::PARAM_INT);
 $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
