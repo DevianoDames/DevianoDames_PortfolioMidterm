@@ -7,20 +7,20 @@ if(!isset($_SESSION['username'])){
     exit;
 }
 
-// Include database connection
+
 require_once('../includes/connect.php');
 
-// Fetch portfolio items from database
+
 try {
     $stmt = $connection->prepare("SELECT id, title, description FROM portfolio_items ORDER BY created_at DESC");
     $stmt->execute();
     
-    // Fetch all portfolio items
+    
     $portfolioItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (Exception $e) {
-    // Handle exception
+  
     $portfolioItems = [];
-    // Optionally, log this error to a file or display a friendly error message
+  
 }
 
 ?>
@@ -42,7 +42,7 @@ try {
                     <li>
                         <h2><?= htmlspecialchars($item['title']) ?></h2>
                         <p><?= htmlspecialchars($item['description']) ?></p>
-                        <!-- You can add more details or an edit/delete link here -->
+                       
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -55,7 +55,7 @@ try {
     </style>
 
     <br><br><br>
-    <!-- Add a New Project Form -->
+  
     <style>
       <style>
         .project-list-container {
