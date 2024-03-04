@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start or resume the session
+session_start(); 
 
 
 if(!isset($_SESSION['username'])){
@@ -7,6 +7,7 @@ if(!isset($_SESSION['username'])){
     exit;
 }
 require_once('../includes/connect.php');
+
 
 //move_uploaded_file etc FIRST, as we need the new name
 //save the name in $filename variable
@@ -25,3 +26,4 @@ $last_id = $connection->lastInsertId();
 $stmt = null;
 header('Location: project_list.php');
 ?>
+
