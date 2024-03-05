@@ -39,16 +39,16 @@ $stmt->execute();
 
     <section class="portfolio">
     <h2>Latest Projects</h2>
+    <br><br><br>
     <div class="portfolio-container">
         <?php
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="portfolio-box">';
-            echo '<a href="project_casestudy.php?id=' . $row['id'] . '">';
+            echo '<a href="project_casestudy.php?id=' . $row['Id'] . '">';
             echo '<img src="images/' . $row['image_url'] . '" alt="Project Thumbnail">';
             echo '<div class="portfolio-cover">';
-            echo '<h4>' . $row['title'] . '</h4>';
             echo '<p>' . $row['description'] . '</p>';
-            echo '<a href="project_casestudy.php?id=' . $row['id'] . '"><i class="fas fa-arrow-right"></i></a>';
+            echo '<a href="project_casestudy.php?id=' . $row['Id'];
             echo '</div>';
             echo '</a>';
             echo '</div>';
