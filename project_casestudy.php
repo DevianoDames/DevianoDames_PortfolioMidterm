@@ -16,15 +16,9 @@ $stmt = null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $row['title']; ?></title>
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script defer src="js/SplitText.js"></script>
-    <script src="https://kit.fontawesome.com/085f61f5df.js" crossorigin="anonymous"></script>
-    <script defer src="js/main.js"></script>
 
 </head>
 <body>
-    
 
 <section class="case-study-content">
         <h2>Project <span>Case Study</span></h2>
