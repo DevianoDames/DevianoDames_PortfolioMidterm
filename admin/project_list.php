@@ -2,28 +2,16 @@
 session_start(); // Start or resume the session
 
 
-if(!isset($_SESSION['username'])){
-    header('Location: login_form.php');
-    exit;
-}
+if(!$_SESSION['username']) {
+    header( 'Location: login_form.php');
+  }
 
 
 require_once('../includes/connect.php');
-
-
-try {
-    $stmt = $connection->prepare("SELECT id, title, description FROM portfolio_items ORDER BY created_at DESC");
-    $stmt->execute();
-    
-    
-    $portfolioItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (Exception $e) {
-  
-    $portfolioItems = [];
-  
-}
-
+$stmt = $connection->prepare('SELECT id,title,description,image_url,overview,problems FROM portfolio_items ORDER BY title ASC');
+$stmt->execute();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,19 +24,21 @@ try {
 <body>
     <h1>Project List</h1>
     <div class="project-list">
-        <?php if (!empty($portfolioItems)): ?>
-            <ul>
-                <?php foreach ($portfolioItems as $item): ?>
-                    <li>
-                        <h2><?= htmlspecialchars($item['title']) ?></h2>
-                        <p><?= htmlspecialchars($item['description']) ?></p>
-                       
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        <?php else: ?>
-           
-        <?php endif; ?>
+    
+    <?php
+
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+  echo  '<p class="project-list">'.
+  $row['title'].
+  '<a href="edit_project_form.php?id='.$row['id'].'">edit</a>'.
+
+  '<a href="delete_project.php?id='.$row['id'].'">delete</a></p>';
+}
+
+$stmt = null;
+
+?>   
     </div>
     <style>
       
@@ -118,7 +108,7 @@ try {
     </style>
    <!-- Add a New Project Form -->
 <div class="contact">
-    <form action="latest_project.php" method="post" class="form-styling" enctype="multipart/form-data">
+    <form action="add_project.php" method="post" class="form-styling" enctype="multipart/form-data">
         <div class="input-box">
             <label for="title">Project Title:</label>
             <input name="title" type="text" required>
@@ -137,6 +127,9 @@ try {
         </div>
         <input name="submit" type="submit" value="Add" class="btn">
     </form>
+    <br><br><br>
+    <div class="btn">
+    <a href="logout.php">log out</a>
 </div>
 
 </body>
