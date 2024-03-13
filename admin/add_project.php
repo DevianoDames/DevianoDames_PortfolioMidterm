@@ -11,7 +11,8 @@ $query = "INSERT INTO portfolio_items (id,title,description,image_url,overview,p
 $stmt = $connection->prepare($query);
 $stmt->bindParam(1, $_POST['title'], PDO::PARAM_STR);
 $stmt->bindParam(2, $_POST['desc'], PDO::PARAM_STR);
-$stmt->bindParam(3, $filename, PDO::PARAM_STR);
+$stmt->bindParam(3, $_POST['thumb'], PDO::PARAM_STR);
+$stmt->bindParam(4, $filename, PDO::PARAM_STR);
 
 $stmt->execute();
 $last_id = $connection->lastInsertId();
