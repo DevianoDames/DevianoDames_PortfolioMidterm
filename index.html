@@ -12,6 +12,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script defer src="js/SplitText.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/085f61f5df.js" crossorigin="anonymous"></script>
     <script defer src="js/main.js"></script>
 
@@ -168,8 +169,8 @@
     <!--Contact Section-->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
-    
-        <form id="contactForm" action="sendmail.php" method="post">
+
+        <form id="contactForm">
             <div class="input-box">
                 <input type="text" name="first_name" placeholder="First Name" required>
                 <input type="text" name="last_name" placeholder="Last Name" required>    
@@ -179,7 +180,7 @@
                 <input type="text" name="phone_number" placeholder="Phone Number">
             </div>
             <textarea name="comments" cols="30" rows="10" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
+            <button class="btn">Send Message</button>
         </form>
     </section>
     

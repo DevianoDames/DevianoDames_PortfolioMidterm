@@ -1,4 +1,30 @@
-/* Navbar toggle*/
+$(document).ready(function() {
+    $('#contactForm').submit(function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        // Serialize form data
+        var formData = $(this).serialize();
+
+        // Send AJAX request
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8888/DevianoDames_PortfolioMidterm/sendmail.php',
+            data: formData,
+            success: function(response) {
+                
+                console.log(response); 
+                alert('Message sent successfully!'); 
+            },
+            error: function(xhr, status, error) {
+              
+                console.error(xhr.responseText); 
+                alert('Error sending message. Please try again.'); 
+            }
+        });
+    });
+});
+
+
 
 let hamMenu = document.querySelector('#ham-menu'); 
 let navbar = document.querySelector('.navbar');
@@ -10,8 +36,6 @@ hamMenu.onclick = () => {
 
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
-
-
 
 window.onscroll = () => {
     sections.forEach(sec => {
@@ -36,44 +60,9 @@ window.onscroll = () => {
 
     hamMenu.classList.remove('fa-xmark');
     navbar.classList.remove('active');
-
-
-
 };
 
-document.getElementById('contactForm').addEventListener('submit', function(event){
-    event.preventDefault(); 
-
-    let formData = new FormData(this); 
-
-   
-    fetch('sendmail.php', {
-        method: 'post',
-        body: formData,
-    })
-    .then(response => response.text())
-    .then(data => {
-       
-        console.log(data); 
-       
-        alert('Message sent successfully!'); 
-        
-    })
-    .catch(error => {
-       
-        console.error('Error:', error);
-        alert('An error occurred while sending the message.');
-    });
-});
-
-
-
-
-
-
-
 ScrollReveal({
-    //reset: true,
     distance:'80px',
     duration: 2000,
     delay: 200
