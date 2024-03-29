@@ -1,17 +1,47 @@
 <?php
 session_start(); // Start or resume the session
 
-
-if(!$_SESSION['username']) {
-    header( 'Location: login_form.php');
-  }
-
+if (!$_SESSION['username']) {
+    header('Location: login_form.php');
+    exit();
+}
 
 require_once('../includes/connect.php');
-$stmt = $connection->prepare('SELECT id,title,description,image_url,overview,problems FROM portfolio_items ORDER BY title ASC');
-$stmt->execute();
-?>
 
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+    // File upload handling if needed
+    $filename = ''; // Placeholder, replace with actual file handling logic
+
+    $query = "INSERT INTO portfolio_items (title, description, image_url) VALUES (?, ?, ?)";
+    $stmt = $connection->prepare($query);
+
+    if ($stmt) {
+        $stmt->bindParam(1, $_POST['title'], PDO::PARAM_STR);
+        $stmt->bindParam(2, $_POST['desc'], PDO::PARAM_STR);
+        $stmt->bindParam(3, $filename, PDO::PARAM_STR); // If uploading files, replace $filename with the actual filename
+
+        try {
+            if ($stmt->execute()) {
+                // Redirect to project list after successful insertion
+                header('Location: project_list.php');
+                exit();
+            } else {
+                $error_message = "Error executing SQL query.";
+            }
+        } catch (PDOException $e) {
+            $error_message = "Error adding project: " . $e->getMessage();
+        }
+    } else {
+        $error_message = "Error preparing SQL statement.";
+    }
+}
+
+// Display any error messages
+if (isset($error_message)) {
+    echo '<div style="color: red;">' . $error_message . '</div>';
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,117 +50,113 @@ $stmt->execute();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project List</title>
     <link rel="stylesheet" href="../css/main.css"> <!-- Adjust the path as needed -->
-</head>
-<body>
-    <h1>Project List</h1>
-    <div class="project-list">
-    
-    <?php
-
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
-  echo  '<p class="project-list">'.
-  $row['title'].
-  '<a href="edit_project_form.php?id='.$row['id'].'">edit</a>'.
-
-  '<a href="delete_project.php?id='.$row['id'].'">delete</a></p>';
-}
-
-$stmt = null;
-
-?>   
-    </div>
     <style>
-      
-    </style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
 
-    <br><br><br>
-  
-    <style>
-      <style>
-        .project-list-container {
-            margin: 20px;
-            padding: 10px;
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .project-list {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
         }
-        .project-list:hover {
-            background: #34495e;
-        }
-        .project-list a {
-            color: #18bc9c;
-            margin-left: 10px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .project-list a:hover {
-            color: #2ecc71;
-        }
-        .contact {
-            background: #323846;
+
+        .add-project {
+            background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            max-width: 500px;
-            margin: 30px auto;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
-        .input-box {
-            margin-bottom: 15px;
+
+        .add-project h2 {
+            color: #333;
+            margin-bottom: 10px;
         }
-        .input-box input,
-        .input-box textarea {
+
+        .add-project label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .add-project input[type="text"],
+        .add-project textarea,
+        .add-project input[type="file"],
+        .add-project input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background: #1f242d;
-            border: 1px solid #3d4752;
-            color: #ecf0f1;
-            border-radius: 4px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        .btn {
-            background: #18bc9c;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            border: none;
-        }
-        .btn:hover {
-            background: #16a085;
-        }
-    </style>
-    </style>
-   <!-- Add a New Project Form -->
-<div class="contact">
-    <form action="add_project.php" method="post" class="form-styling" enctype="multipart/form-data">
-        <div class="input-box">
-            <label for="title">Project Title:</label>
-            <input name="title" type="text" required>
-        </div>
-        <div class="input-box">
-            <label for="thumb">Project Thumbnail:</label>
-            <input name="thumb" type="text">
-        </div>
-        <div class="input-box">
-            <label for="image">Project Image:</label>
-            <input name="image" type="file" accept="image/*" required>
-        </div>
-        <div class="input-box">
-            <label for="desc">Project Description:</label>
-            <textarea name="desc" required></textarea>
-        </div>
-        <input name="submit" type="submit" value="Add" class="btn">
-    </form>
-    <br><br><br>
-    <div class="btn">
-    <a href="logout.php">log out</a>
-</div>
 
+        .add-project input[type="submit"] {
+            background-color: #18bc9c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-project input[type="submit"]:hover {
+            background-color: #15a589;
+        }
+
+        .btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn a {
+            color: #18bc9c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Project List</h1>
+
+        <!-- Add Project Form -->
+        <div class="add-project">
+            <h2>Add New Project</h2>
+            <?php if (isset($error_message)) : ?>
+                <div class="error-message"><?php echo $error_message; ?></div>
+            <?php endif; ?>
+            <form action="project_list.php" method="post" enctype="multipart/form-data">
+                <label for="title">Project Title:</label>
+                <input type="text" name="title" required><br>
+                <label for="desc">Project Description:</label>
+                <textarea name="desc" required></textarea><br>
+                <label for="image">Project Image:</label>
+                <input type="file" name="image" accept="image/*" required><br>
+                <input type="submit" name="submit" value="Add Project">
+            </form>
+        </div>
+
+        <div class="btn">
+            <a href="logout.php">Log Out</a>
+        </div>
+    </div>
 </body>
 </html>
