@@ -24,6 +24,21 @@ $stmt = null;
 
 </head>
 <body>
+<header class="header">
+        <a href="#" class="logo">Deviano.</a>
+        
+        <i class="fa-solid fa-bars" id="ham-menu"></i>
+        
+        <nav class="navbar">
+            <a href="index.html" class= "active">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="#">Project</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+    </header>
+    <br><br><br><br><br>
 
 <section class="case-study-content">
         <h2>Project <span>Case Study</span></h2>
