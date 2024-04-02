@@ -21,6 +21,85 @@ $stmt = null;
     <script defer src="js/SplitText.js"></script>
     <script src="https://kit.fontawesome.com/085f61f5df.js" crossorigin="anonymous"></script>
     <script defer src="js/main.js"></script>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .case-study-content {
+            padding: 50px;
+            
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .case-study-content p {
+            font-size: 28px;
+            line-height: 1.5;
+            color: #fff;
+        }
+
+        .project-info2 h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .project-info2 p {
+            font-size: 28px;
+            line-height: 1.5;
+            color: #fff;
+        }
+
+        .project-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .portfolio-image {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+        .portfolio-image:hover {
+            transform: scale(1.05);
+        }
+        /* Case Study Section */
+
+.overview-section {
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.overview-section h2 {
+  font-size: 35px;
+}
+
+.overview-section p {
+  font-size: 28px;
+  
+}
+        
+    </style>
+   
 
 </head>
 <body>
@@ -49,12 +128,14 @@ $stmt = null;
 <p><?php echo $row['description']; ?></p>
 
 <div class="project-info2">
-<h2>Overview</h2>
+<div class="overview-section">
+<h2><span>Overview</h2>
 <p><?php echo $row['overview']; ?></p>
+</div>
 </div>
 
 <div class="project-info2">
-<h2>Problems and Solutions</h2>
+<h2>Problems and <span>Solutions</h2>
 <p class="probs"><?php echo $row['problems']; ?></p>
 </div>
 </div>

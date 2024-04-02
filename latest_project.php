@@ -42,30 +42,32 @@ $stmt->execute();
         </nav>
 
     </header>
-    
+
     <section class="portfolio">
-    <h2>Latest Projects</h2>
-    <br><br><br>
-    <div class="portfolio-container" id="portfolioContainer">
+    <h2>Latest <span>Projects</h2>
+    <div class="portfolio-container">
         <?php
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="portfolio-box">';
             echo '<a href="project_casestudy.php?id=' . $row['Id'] . '">';
-            echo '<img src="images/' . $row['image_url'] . '" alt="Project Thumbnail">';
+            echo '<img class="portfolio-image" src="images/' . $row['image_url'] . '" alt="Project Thumbnail">';
             echo '<div class="portfolio-cover">';
             echo '<p>' . $row['description'] . '</p>';
-            echo '<a href="project_casestudy.php?id=' . $row['Id'];
             echo '</div>';
             echo '</a>';
             echo '</div>';
         }
-
-
-
-
-$stmt = null;
+        $stmt = null;
 
 ?> 
+        ?>
+        
+    </div>
+        
+
+
+
+
 
 
 </body>
