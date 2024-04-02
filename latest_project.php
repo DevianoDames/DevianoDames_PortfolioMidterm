@@ -42,11 +42,11 @@ $stmt->execute();
         </nav>
 
     </header>
-
+    
     <section class="portfolio">
     <h2>Latest Projects</h2>
     <br><br><br>
-    <div class="portfolio-container">
+    <div class="portfolio-container" id="portfolioContainer">
         <?php
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="portfolio-box">';
@@ -59,6 +59,7 @@ $stmt->execute();
             echo '</a>';
             echo '</div>';
         }
+
 
 
 
