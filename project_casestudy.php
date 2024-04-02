@@ -151,7 +151,10 @@ echo '<img class="portfolio-image" src="images/'.$images[$i].'" alt="Project Ima
 }
 ?>
 </section>
-<button onclick="goToLatestProject()" style="position: fixed; bottom: 20px; right: 20px;"><span>Back</button>
+<button onclick="goToLatestProject()" style="position: fixed; bottom: 20px; right: 20px; background-color: transparent; border: none; cursor: pointer;">
+    <span style="font-size: 24px;">Back</span>
+</button>
+
 
 <script>
     // JavaScript function to redirect to latest project page
