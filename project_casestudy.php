@@ -151,6 +151,15 @@ echo '<img class="portfolio-image" src="images/'.$images[$i].'" alt="Project Ima
 }
 ?>
 </section>
+<button onclick="goToLatestProject()" style="position: fixed; bottom: 20px; right: 20px;"><span>Back</button>
+
+<script>
+    // JavaScript function to redirect to latest project page
+    function goToLatestProject() {
+        window.location.href = "latest_project.php"; // Change "latest_project.php" to the URL of your latest project page
+    }
+</script>
+
 
 </body>
 </html>
