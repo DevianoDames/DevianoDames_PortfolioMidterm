@@ -60,13 +60,10 @@ $stmt->execute();
         $stmt = null;
 
 ?> 
-        ?>
+        
         
     </div>
         
-
-
-
 
 
 
