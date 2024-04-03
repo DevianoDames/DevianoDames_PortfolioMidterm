@@ -163,6 +163,14 @@ echo '<img class="portfolio-image" src="images/'.$images[$i].'" alt="Project Ima
     }
 </script>
 
+<footer class="footer">
+    <div class="footer-text">
+        <p>Copyright &copy;2023 by DevianoD | All Rights Reserved.</p>
+    </div>
 
+    <div class="footer-iconTop">
+        <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+</footer>
 </body>
 </html>
